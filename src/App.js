@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import styled, { ThemeProvider } from "styled-components";
+import { darkTheme } from "./utils/Themes";
+import Navbar from "./components/Navbar";
+import Hero from "./components/sections/Hero";
 
+
+const Body = styled.div`
+  background-color: ${({ theme }) => theme.bg};
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+`;
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <BrowserRouter>
+        <Navbar/>
+        <Body>
+          <Hero/>
+        </Body>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
