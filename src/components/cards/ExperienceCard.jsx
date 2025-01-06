@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState} from "react";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 import styled from "styled-components";
 
@@ -83,18 +83,33 @@ const ItemWrapper = styled.div`
   gap: 8px;
 `;
 
+const CertificateButton = styled.button`
+  padding: 8px 16px;
+  background-color: ${({ theme }) => theme.primary};
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  &:hover {
+    background-color: ${({ theme }) => theme.primaryHover};
+  }
+`;
+
+const CertificateImage = styled.img`
+  max-width: 100%;
+  max-height: 400px;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+`;
+
 const ExperienceCard = ({ experience }) => {
+  const [showCertificate, setShowCertificate] = useState(false);
+
   return (
     <VerticalTimelineElement
-      icon={
-        <img
-          width="100%"
-          height="100%"
-          alt={experience?.company}
-          style={{ borderRadius: "50%", objectFit: "cover" }}
-          src={experience?.img}
-        />
-      }
+      icon={<img width="100%" height="100%" alt={experience?.company} style={{ borderRadius: "50%", objectFit: "cover" }} src={experience?.img} />}
       contentStyle={{
         display: "flex",
         flexDirection: "column",
@@ -107,7 +122,7 @@ const ExperienceCard = ({ experience }) => {
         borderRadius: "6px",
       }}
       contentArrowStyle={{
-        borderRight: "7px solid  rgba(255, 255, 255, 0.3)",
+        borderRight: "7px solid rgba(255, 255, 255, 0.3)",
       }}
       date={experience?.date}
     >
@@ -128,13 +143,25 @@ const ExperienceCard = ({ experience }) => {
               <b>Skills</b>
               <ItemWrapper>
                 {experience?.skills?.map((skill, index) => (
-                  <Skill>• {skill}</Skill>
+                  <Skill key={index}>• {skill}</Skill>
                 ))}
               </ItemWrapper>
             </Skills>
           </>
         )}
       </Description>
+
+      {/* "View Certificate" Button */}
+      {experience?.certificate && (
+        <CertificateButton onClick={() => setShowCertificate(!showCertificate)}>
+          {showCertificate ? "Hide Certificate" : "View Certificate"}
+        </CertificateButton>
+      )}
+
+      {/* Certificate Image */}
+      {showCertificate && experience?.certificate && (
+        <CertificateImage src={experience.certificate} alt="Certificate" />
+      )}
     </VerticalTimelineElement>
   );
 };
