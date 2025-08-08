@@ -9,7 +9,7 @@ export const Bio = {
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   github: "https://github.com/ArunimaSaha23",
   resume:
-    "https://drive.google.com/file/d/1BzoIOBKNoaxV_mJuOcEiJHb-9v_qUa5O/view?usp=drive_link",
+    "https://drive.google.com/file/d/11RSayylT9jFKJMEYFXxYpRSgLWYAZ048/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/arunima-saha-00170b258/",
   insta: "https://www.instagram.com/aroonimaah_23/",
 };
@@ -272,7 +272,7 @@ export const projects = [
   {
   id: 3,
   title: "TripSculpt",
-  description: "2025Trip Sculpt is an AI-powered travel planner built with React, Firestore, LocationIQ, Unsplash API, and Gemini AI. It recommends destinations and creates personalized itineraries based on user input, storing preferences and enhancing UX with location data and images.",
+  description: "Trip Sculpt is an AI-powered travel planner built with React, Firestore, LocationIQ, Unsplash API, and Gemini AI. It recommends destinations and creates personalized itineraries based on user input, storing preferences and enhancing UX with location data and images.",
   github: "https://github.com/ArunimaSaha23/Trip-Sculpt.git", // Add this
   category: "Web App",
   },
