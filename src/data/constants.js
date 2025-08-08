@@ -172,7 +172,7 @@ export const experiences = [
     role: "Summer Intern",
     company: "Indian Oil Corporation Ltd., Guwahati Refinery",
     date: "June 2025-July 2025",
-    desc: "Developed a QR based identity verification system with Face Recognition for the employees and a proper Uniform(IFR Suit,safety shoes,helmet) detection system for maintaining safety protocols within the refinery.",
+    desc: "Developed a QR based identity verification system with Face Recognition for the employees and a proper Uniform(IFR Suit, safety shoes, helmet) detection system for maintaining safety protocols within the refinery.",
     skills: [
       "ReactJS",
       "Django",
@@ -259,13 +259,13 @@ export const projects = [
   id: 1,
   title: "AI Powered Workplace Safety Compliance System",
   description: "Developed a QR-based entry pass system with automated entry/exit logging and overtime tracking. Implemented real-time facial recognition using OpenCV and dlib, and PPE detection (helmet, shoes, uniform) with YOLOv11. Built with a full-stack setup using React, Tailwind CSS, and Django for seamless integration.",
-  github: "https://github.com/ArunimaSaha23/DoctorAppointmentApp.git", // Add this
+  github: "https://github.com/BHARATJHAWAR52/IOCL_Security.git", // Add this
   category: "Web App",
   },
   {
   id: 2,
-  title: "Prescripto",
-  description: "Prescripto is a React-based doctor appointment app with MongoDB, Node.js, and Express.js backend. It features dynamic forms, health record management, and Cloudinary integration for image handling, offering a smooth, user-friendly experience. Backend development is ongoing.",
+  title: "HealSync",
+  description: "HealSync is a React-based doctor appointment app with MongoDB, Node.js, and Express.js backend. It features dynamic forms, health record management, and Cloudinary integration for image handling, offering a smooth, user-friendly experience. Backend development is ongoing.",
   github: "https://github.com/ArunimaSaha23/DoctorAppointmentApp.git", // Add this
   category: "Web App",
   },
