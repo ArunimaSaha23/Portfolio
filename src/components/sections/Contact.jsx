@@ -1,14 +1,14 @@
-import React, { useRef } from "react";
+import React from "react";
 import styled from "styled-components";
-import emailjs from "@emailjs/browser";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-contnet: center;
-  position: rlative;
+  justify-content: center;
+  position: relative;
   z-index: 1;
   align-items: center;
+  padding: 80px 0;
 `;
 
 const Wrapper = styled.div`
@@ -24,6 +24,7 @@ const Wrapper = styled.div`
     flex-direction: column;
   }
 `;
+
 const Title = styled.div`
   font-size: 52px;
   text-align: center;
@@ -35,17 +36,19 @@ const Title = styled.div`
     font-size: 32px;
   }
 `;
+
 const Desc = styled.div`
   font-size: 18px;
   text-align: center;
   font-weight: 600;
   color: ${({ theme }) => theme.text_secondary};
+  margin-bottom: 40px;
   @media (max-width: 768px) {
     font-size: 16px;
   }
 `;
 
-const ContactForm = styled.div`
+const ContactBox = styled.div`
   width: 95%;
   max-width: 600px;
   display: flex;
@@ -56,100 +59,104 @@ const ContactForm = styled.div`
   border-radius: 12px;
   box-shadow: rgba(23, 92, 230, 0.1) 0px 4px 24px;
   margin-top: 28px;
-  gap: 12px;
+  gap: 20px;
 `;
+
 const ContactTitle = styled.div`
   font-size: 28px;
   margin-bottom: 6px;
   font-weight: 600;
   color: ${({ theme }) => theme.text_primary};
-`;
-const ContactInput = styled.input`
-  flex: 1;
-  background-color: transparent;
-  border: 1px solid ${({ theme }) => theme.text_secondary + 50};
-  outline: none;
-  font-size: 18px;
-  color: ${({ theme }) => theme.text_primary};
-  border-radius: 12px;
-  padding: 12px 16px;
-  &:focus {
-    border: 1px solid ${({ theme }) => theme.primary};
-  }
-`;
-const ContactInputMessage = styled.textarea`
-  flex: 1;
-  background-color: transparent;
-  border: 1px solid ${({ theme }) => theme.text_secondary + 50};
-  outline: none;
-  font-size: 18px;
-  color: ${({ theme }) => theme.text_primary};
-  border-radius: 12px;
-  padding: 12px 16px;
-  &:focus {
-    border: 1px solid ${({ theme }) => theme.primary};
-  }
-`;
-const ContactButton = styled.input`
-  width: 100%;
-  text-decoration: none;
   text-align: center;
-  background: hsla(271, 100%, 50%, 1);
-  padding: 13px 16px;
-  margin-top: 2px;
-  border-radius: 12px;
-  border: none;
-  color: ${({ theme }) => theme.text_primary};
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+`;
 
-  &:active {
-    transform: scale(0.95);
-    box-shadow: 0px 4px 15px rgba(23, 92, 230, 0.2);
+const ContactItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
   }
 `;
+
+const ContactIcon = styled.div`
+  font-size: 24px;
+  min-width: 40px;
+  text-align: center;
+`;
+
+const ContactDetails = styled.div`
+  flex: 1;
+`;
+
+const ContactLabel = styled.div`
+  font-size: 14px;
+  color: ${({ theme }) => theme.text_secondary};
+  margin-bottom: 4px;
+`;
+
+const ContactLink = styled.a`
+  font-size: 18px;
+  color: ${({ theme }) => theme.primary};
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: ${({ theme }) => theme.text_primary};
+  }
+`;
+
+const FooterText = styled.div`
+  text-align: center;
+  font-size: 14px;
+  color: ${({ theme }) => theme.text_secondary};
+  margin-top: 16px;
+`;
+
 const Contact = () => {
-  const form = useRef();
-  const handelSubmit = (e) => {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_oz34ioc",
-        "template_l3sap6q",
-        form.current,
-        "UZsqVtK6-xrC8UlgE"
-      )
-      .then(
-        (result) => {
-          alert("Message Sent");
-          form.current.result();
-        },
-        (error) => {
-          alert(error);
-        }
-      );
-  };
   return (
-    <Container id="Education">
+    <Container id="Contact">
       <Wrapper>
         <Title>Contact</Title>
-        <Desc
-          style={{
-            marginBottom: "40px",
-          }}
-        >
+        <Desc>
           Feel free to reach out to me for any questions or opportunities!
         </Desc>
-        <ContactForm onSubmit={handelSubmit}>
-          <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" />
-          <ContactInput placeholder="Your Name" name="from_name" />
-          <ContactInput placeholder="Subject" name="subject" />
-          <ContactInputMessage placeholder="Message" name="message" rows={4} />
-          <ContactButton type="submit" value="Send" />
-        </ContactForm>
+        
+        <ContactBox>
+          <ContactTitle>Get In Touch 🚀</ContactTitle>
+          
+          <ContactItem>
+            <ContactIcon>📧</ContactIcon>
+            <ContactDetails>
+              <ContactLabel>Email</ContactLabel>
+              <ContactLink href="arunimasaha202@gmail.com">
+                arunimasaha202@gmail.com
+              </ContactLink>
+            </ContactDetails>
+          </ContactItem>
+          
+          <ContactItem>
+            <ContactIcon>📱</ContactIcon>
+            <ContactDetails>
+              <ContactLabel>Phone</ContactLabel>
+              <ContactLink href="tel:+91 6291998711">
+                +91 6291998711
+              </ContactLink>
+            </ContactDetails>
+          </ContactItem>
+          
+          <FooterText>
+            I'll get back to you as soon as possible!
+          </FooterText>
+        </ContactBox>
       </Wrapper>
     </Container>
   );
